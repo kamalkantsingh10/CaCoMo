@@ -22,7 +22,7 @@ All approaches were tested and implemented within a 2-day timeframe without usin
 |----------|----------|-------|------------|----------|
 | Rule-Based POS Tagging | 48.5% | 1 sec (fastest) | 15MB | Quick deployment, limited accuracy |
 | BERT-to-BERT | 0% (failed) | 8 min | 985MB | Not recommended (needs investigation) |
-| T5 with LoRA | 72.1% | 10 min | 10MB (adapter) | Best balance of accuracy and size |
+| T5 with LoRA (Finetuning) | 72.1% | 10 min | 10MB (adapter) | Best balance of accuracy and size |
 
 ## Approaches Tested
 
@@ -111,7 +111,7 @@ Each approach followed a specific implementation path:
    - Validated on test set
    - [See Python implementation for more details](https://github.com/kamalkantsingh10/CaCoMo/blob/main/source_bert/model_trainer.py)
 
-3. **T5 with LoRA:**
+3. **T5 with LoRA (Fine-tuning):**
    - Loaded pre-trained T5-small model
    - Configured LoRA adapter with rank 8
    - Preprocessed data with "correct case for sentence:" prefix
