@@ -16,8 +16,18 @@ Hello world. This is John Smith from Apple Inc. He lives in New York.
 
 All approaches were tested and implemented within a 2-day timeframe without using large LLMs directly, focusing on practical learning outcomes.
 
+## TLDR: Quick Comparison
+
+| Approach | Accuracy | Speed | Model Size | Best For |
+|----------|----------|-------|------------|----------|
+| Rule-Based POS Tagging | 48.5% | 1 sec (fastest) | 15MB | Quick deployment, limited accuracy |
+| BERT-to-BERT | 0% (failed) | 8 min | 985MB | Not recommended (needs investigation) |
+| T5 with LoRA | 72.1% | 10 min | 10MB (adapter) | Best balance of accuracy and size |
+
 ## Approaches Tested
-![Alt text](https://raw.githubusercontent.com/kamalkantsingh10/CaCoMo/refs/heads/main/CaCoMo.png)
+
+![Architectural diagram comparing the three approaches](https://github.com/kamalkantsingh10/CaCoMo/blob/main/doc_images/CaCoMo.png?raw=true)
+
 ### 1. Rule-Based POS Tagging
 
 This approach uses spaCy's part-of-speech tagger to classify words and applies grammatical rules for capitalization. It serves as our performance baseline.
@@ -146,6 +156,8 @@ After 20 hours of development and testing over a weekend:
 
 ### Example Comparison
 
+While none of the approaches achieved perfect results, this example demonstrates how the approaches performed on a real test case:
+
 **Input:**
 ```
 chapter i introduction to storm probably susan hawthorne got a lot of her courage and independence from her father, old smiler hawthorne, who in his time had been nearly everything and nearly everywhere--a tall, grizzled man who was generally broke but always unbeatable.
@@ -154,6 +166,16 @@ chapter i introduction to storm probably susan hawthorne got a lot of her courag
 **Expected Output:**
 ```
 CHAPTER I INTRODUCTION TO STORM Probably Susan Hawthorne got a lot of her courage and independence from her father, old Smiler Hawthorne, who in his time had been nearly everything and nearly everywhere--a tall, grizzled man who was generally broke but always unbeatable.
+```
+
+**Rule-Based Approach Output:**
+```
+Chapter I introduction to storm probably Susan hawthorne got a lot of her courage and independence from her father, old smiler hawthorne, who in his time had been nearly everything and nearly everywhere--a tall, grizzled man who was generally broke but always unbeatable.
+```
+
+**T5 without Fine-tuning Output:**
+```
+positive
 ```
 
 **T5 with LoRA Output:**
@@ -168,6 +190,47 @@ Chapter I Introduction to Storm probably Susan Hawthorne got a lot of her courag
 3. Create a Streamlit frontend to demonstrate the models in action
 4. Test with more diverse text types beyond literary sources
 5. Explore hybrid approaches that combine rule-based efficiency with neural model accuracy
+
+## Frequently Asked Questions
+
+### Why focus on text capitalization restoration?
+Text capitalization is a fundamental part of proper text formatting that affects readability, tone, and meaning. Many NLP preprocessing tasks involve lowercase conversion to normalize text, but the ability to restore proper capitalization is crucial for generating publication-ready content or improving user experience with automatically generated text.
+
+### Why did the BERT-to-BERT approach fail completely?
+The complete failure (0% accuracy) of the BERT-to-BERT approach was unexpected. Possible reasons include:
+- Insufficient training data for such a complex model architecture
+- Too few training epochs (only 3) for the model to converge
+- Potential issues with the implementation of the encoder-decoder structure
+- Misalignment between pretraining objectives and the fine-tuning task
+
+Further investigation with more data and training time would be necessary to determine the exact cause.
+
+### Could you achieve better results with more resources?
+Yes, all approaches could likely be improved with additional resources:
+- The rule-based approach could be enhanced with more carefully crafted rules
+- The neural approaches would benefit from more training data, more epochs, and potentially GPU acceleration
+- Hyperparameter tuning and architecture modifications could significantly improve performance
+- A hybrid approach combining rule-based and neural methods might achieve the best results
+
+### Is the T5 with LoRA approach production-ready?
+At 72.14% accuracy, the T5 with LoRA approach shows promise but would need further improvement before being deployed in a production setting where high accuracy is required. For non-critical applications or as part of a larger pipeline with human review, the current performance might be acceptable. The lightweight nature of the LoRA adapter (10MB) makes it practical for deployment even with limited resources.
+
+### How would these approaches perform on different types of text?
+This experiment used text from Project Gutenberg books, which has a particular literary style. Performance would likely vary on different types of content:
+- Modern web content might present different capitalization patterns
+- Domain-specific text (legal, medical, technical) would have unique terminology and formatting
+- Social media text might present additional challenges due to irregular capitalization patterns
+- Multi-lingual text would require language-specific approaches
+
+### Can this approach be extended to other text normalization tasks?
+Yes, the methodologies demonstrated here could be applied to other text normalization tasks such as:
+- Punctuation restoration
+- Number formatting
+- Abbreviation expansion
+- Text detoxification
+- Stylistic transformations
+
+The T5 with LoRA approach, in particular, shows promise for efficient adaptation to various text transformation tasks.
 
 ## Conclusion
 
