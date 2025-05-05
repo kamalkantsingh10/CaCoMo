@@ -1,7 +1,7 @@
 # Model files
 models/full_model/model.safetensors
 tiny_model/model.safetensors
-
+readme.md
 # Optionally ignore all safetensors files
 # *.safetensors
 
