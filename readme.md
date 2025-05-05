@@ -191,6 +191,12 @@ Chapter I Introduction to Storm probably Susan Hawthorne got a lot of her courag
 4. Test with more diverse text types beyond literary sources
 5. Explore hybrid approaches that combine rule-based efficiency with neural model accuracy
 
+
+## Conclusion
+
+T5 with LoRA emerged as the clear winner, achieving 72.14% accuracy while maintaining a compact model size of just 10MB (adapter only). This lightweight approach outperformed both the traditional rule-based system and the larger neural network architecture, demonstrating the effectiveness of efficient fine-tuning techniques for NLP tasks with limited computational resources.
+
+
 ## Frequently Asked Questions
 
 ### Why focus on text capitalization restoration?
@@ -231,7 +237,3 @@ Yes, the methodologies demonstrated here could be applied to other text normaliz
 - Stylistic transformations
 
 The T5 with LoRA approach, in particular, shows promise for efficient adaptation to various text transformation tasks.
-
-## Conclusion
-
-T5 with LoRA emerged as the clear winner, achieving 72.14% accuracy while maintaining a compact model size of just 10MB (adapter only). This lightweight approach outperformed both the traditional rule-based system and the larger neural network architecture, demonstrating the effectiveness of efficient fine-tuning techniques for NLP tasks with limited computational resources.
