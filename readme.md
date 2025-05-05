@@ -9,7 +9,76 @@ Restore proper capitalization to text that has been converted to all lowercase l
 `Input: "hello world. this is john smith from apple inc. he lives in new york."`   
 `Output:"Hello world. This is John Smith from Apple Inc. He lives in New York."`
 
-## **Approaches**
+## **Approaches tested**
 
-| Approach 1: Rule-Based POS Tagging (Baseline) We leverage spaCy's part-of-speech tagger to classify words and apply grammatical rules for capitalization. This traditional approach serves as our performance baseline while maintaining fast, deterministic processing. Key Benefits Zero training required – deploy immediately Fully transparent decisions – debug easily Lightning fast inference – no GPU needed Consistent results every time Implementation Steps Load spaCy model and define rule sets Process text with POS tagger to identify word types Apply capitalization rules based on word position and POS tags Handle special formatting for punctuation and contractions | Approach 2: BERT Encoder-Decoder (Strong Contender) We construct a sequence-to-sequence model by combining two BERT models: one as the encoder and one as the decoder. This architecture learns to transform lowercase text into correctly capitalized text through end-to-end training. Key Benefits Learns complex patterns automatically Understands full sentence context Adapts to different text domains Leverages BERT's language knowledge for both encoding and decoding Implementation Steps Configure BERT-to-BERT encoder-decoder architecture Prepare dataset with lowercase/correct-case pairs Train model with cross-entropy loss Fine-tune until convergence Validate on test set  | Approach 3: T5 with LoRA (Expected Best Performance) We adapt the state-of-the-art T5 model for case correction using Low-Rank Adaptation, an efficient fine-tuning technique. This method promises optimal results while minimizing computational requirements. Key Benefits Inherits T5's powerful language knowledge Trains only 0.1% of model parameters Reduces training costs by \~80% Easily adapts to new domains Superior generalization to novel patterns Implementation Steps Load pre-trained T5-small model Configure LoRA adapter with rank 8 Preprocess data with "correct case for sentence:" prefix Train adapter while freezing base model Save LoRA adapter for inference  |
-| :---- | :---- | :---- |
+**Approach 1: Rule-Based POS Tagging**  
+We leverage spaCy's part-of-speech tagger to classify words and apply grammatical rules for capitalization. This traditional approach serves as our performance baseline while maintaining fast, deterministic processing.  
+**Pro:-** Zero training required – deploy immediately; Fully transparent decisions – debug easily; Lightning fast inference – no GPU needed; Consistent results every time  
+**Con:-** Cannot adapt to new patterns without manual rule updates; Struggles with ambiguous cases and context-dependent decisions; Requires extensive manual effort to handle edge cases
+
+### **Approach 2: BERT-to-BERT Encoder-Decoder (Strong Contender)**
+
+### We construct a sequence-to-sequence model by combining two BERT models: one as the encoder and one as the decoder. This architecture learns to transform lowercase text into correctly capitalized text through end-to-end training.
+
+**Pro:-** earns complex patterns automatically; Understands full sentence context; Adapts to different text domains; Leverages BERT's language knowledge for both encoding and decoding  
+**Con:-**  Computationally expensive – requires resources for training; Needs large labeled datasets for effective training; Slower inference compared to rule-based approach; Memory intensive – two full BERT models in one architecture
+
+### **Approach 3: T5 with LoRA (Expected Best Performance)**
+
+We adapt the state-of-the-art T5 model for case correction using Low-Rank Adaptation, an efficient fine-tuning technique. This method promises optimal results while minimizing computational requirements.  
+**Pro:-** Inherits T5's powerful language knowledge;  Trains only 0.1% of model parameters; Reduces training costs by \~80%; Easily adapts to new domains; Superior generalization to novel patterns  
+**Con:-** Still requires labeled training data; Moderate inference latency compared to rule**s**
+
+**Training Data**  
+We sourced text from Project Gutenberg books to create a case correction dataset.
+
+**Data Preparation Steps**
+
+1. Download plain text books from [Project Gutenberg](https://gutenberg.org/)  
+2. Parse text into individual sentences  
+3. Convert to lowercase for training inputs  
+4. Use original sentences as correction targets  
+5. Split: 12,500 training, 2,500 validation, 3,000 testing
+
+**Example:**
+
+`Input:she went with some trepidation, and was not unpleasantly surprised, and more than a little nervous, when she found that he was not so inaccessible as his name and position seemed to indicate.`  
+`Target:She went with some trepidation, and was not unpleasantly surprised, and more than a little nervous, when she found that he was not so inaccessible as his name and position seemed to indicate.`
+
+**Key Points**
+
+* Shared training/testing data across all approaches   
+* Created custom Python class for data processing  
+* Ensures fair comparison between models as same testing data will be used  
+    
+  \#code:  
+  from source.dataset\_builder import create\_training\_dataset  
+  create\_training\_dataset(“training\_full\_model”) \#for approach 2  
+  create\_training\_dataset(“finetune”) \#for approach 3
+
+Training dataset for [approach 2](https://github.com/kamalkantsingh10/CaCoMo/blob/main/files/dataset/full_model/training.txt) and [approach 3](https://github.com/kamalkantsingh10/CaCoMo/blob/main/files/dataset/finetune/training.txt)  
+[Validation dataset](https://github.com/kamalkantsingh10/CaCoMo/blob/main/files/dataset/full_model/validation.txt)  
+[Testing dataset](https://github.com/kamalkantsingh10/CaCoMo/blob/main/files/dataset/testing.txt)
+
+**Implementation Steps**
+
+1. **Configure BERT-to-BERT encoder-decoder architecture**  
+2. **Prepare dataset with lowercase/correct-case pairs**  
+3. **Train model with cross-entropy loss**  
+4. **Fine-tune until convergence**  
+5. **Validate on test set**
+
+**Implementation Steps**
+
+1. **Load spaCy model and define rule sets**  
+2. **Process text with POS tagger to identify word types**  
+3. **Apply capitalization rules based on word position and POS tags**  
+4. **Handle special formatting for punctuation and contractions**
+
+**Implementation Steps**
+
+1. **Load pre-trained T5-small model**  
+2. **Configure LoRA adapter with rank 8**  
+3. **Preprocess data with "correct case for sentence:" prefix**  
+4. **Train adapter while freezing base model**  
+5. **Save LoRA adapter for inference**
