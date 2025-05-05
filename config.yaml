@@ -1,0 +1,48 @@
+# Source files (original books)
+
+# Device settings
+device: cpu  # Options: cpu, gpu, amd, auto
+
+source_files:
+  - "files/original/dare_devil.txt"
+  - "files/original/the_room.txt"
+  - "files/original/a_journey_of_joy.txt"
+
+
+testing:
+  file: "files/dataset/testing.txt"
+
+
+training_full_model:
+  training_data: "files/dataset/full_model/training.txt"
+  validation_data: "files/dataset/full_model/validation.txt"
+  model_location: "models/full_model"
+  format: "<lowercase></> <original>"
+  max_length: 128
+  tokaniser: ""
+  epochs: 3
+  batch_size: 16
+  learning_rate: 5e-5
+  tokenizer: "bert-base-uncased"
+  hidden_size: 768
+  num_hidden_layer: 12
+  num_attention_heads: 12
+  intermediate_size: 3072
+
+
+finetune:
+  training_data: "files/dataset/finetune/training.txt"
+  format: "correct case for sentence: <lowercase></> <original>"
+  epochs: 3
+  batch_size: 32
+  learning_rate: 1e-3
+  lora:
+    r: 8
+    alpha: 16
+    dropout: 0.1
+  model_path: ""
+  testing_results: 
+  
+
+pos_tagging:
+  testing_results: "files/testing/pos_tag"

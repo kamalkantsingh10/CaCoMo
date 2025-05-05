@@ -1,0 +1,72 @@
+Configured device: cpu
+==================================================
+SENTENCE FORMATTER TEST RESULTS
+==================================================
+Total test cases: 3001
+Passed: 1457
+Failed: 1544
+Accuracy: 48.55%
+
+CORRECT EXAMPLES (first 5):
+------------------------------
+Input:    'only i don't like my relatives being pushed through traps in execution sheds--it's rotten bad for the health of the genealogical tree.'
+Expected: 'Only I don't like my relatives being pushed through traps in execution sheds--it's rotten bad for the health of the genealogical tree.'
+Actual:   'Only I don't like my relatives being pushed through traps in execution sheds--it's rotten bad for the health of the genealogical tree.'
+✓ Correct
+
+Input:    'he left her his name and thirty pounds, the rest of his fortune having disappeared only a week before, together with the promoter of a company whose sole asset was a diamond field wherein no diamonds were.'
+Expected: 'He left her his name and thirty pounds, the rest of his fortune having disappeared only a week before, together with the promoter of a company whose sole asset was a diamond field wherein no diamonds were.'
+Actual:   'He left her his name and thirty pounds, the rest of his fortune having disappeared only a week before, together with the promoter of a company whose sole asset was a diamond field wherein no diamonds were.'
+✓ Correct
+
+Input:    'he was that sort of man, and she was his daughter.'
+Expected: 'He was that sort of man, and she was his daughter.'
+Actual:   'He was that sort of man, and she was his daughter.'
+✓ Correct
+
+Input:    'she felt very much alone in the world.'
+Expected: 'She felt very much alone in the world.'
+Actual:   'She felt very much alone in the world.'
+✓ Correct
+
+Input:    'she had lost touch with her own friends in the accompanying of her father in his happy-go-lucky aimless globe-trotting; and most of the friends he had picked up himself--and they were legion--were scattered in odd corners of the earth.'
+Expected: 'She had lost touch with her own friends in the accompanying of her father in his happy-go-lucky aimless globe-trotting; and most of the friends he had picked up himself--and they were legion--were scattered in odd corners of the earth.'
+Actual:   'She had lost touch with her own friends in the accompanying of her father in his happy-go-lucky aimless globe-trotting; and most of the friends he had picked up himself--and they were legion--were scattered in odd corners of the earth.'
+✓ Correct
+
+INCORRECT EXAMPLES (first 5):
+------------------------------
+Input:    'chapter i introduction to storm probably susan hawthorne got a lot of her courage and independence from her father, old smiler hawthorne, who in his time had been nearly everything and nearly everywhere--a tall, grizzled man who was generally broke but always unbeatable.'
+Expected: 'CHAPTER I INTRODUCTION TO STORM Probably Susan Hawthorne got a lot of her courage and independence from her father, old Smiler Hawthorne, who in his time had been nearly everything and nearly everywhere--a tall, grizzled man who was generally broke but always unbeatable.'
+Actual:   'Chapter I introduction to storm probably Susan hawthorne got a lot of her courage and independence from her father, old smiler hawthorne, who in his time had been nearly everything and nearly everywhere--a tall, grizzled man who was generally broke but always unbeatable.'
+✗ Incorrect
+
+Input:    'anyway, wherever she got it from, she needed it all; for old hawthorne crossed the divide one night with the same reckless optimism as he had gone through life.'
+Expected: 'Anyway, wherever she got it from, she needed it all; for old Hawthorne crossed the Divide one night with the same reckless optimism as he had gone through life.'
+Actual:   'Anyway, wherever she got it from, she needed it all; for old hawthorne crossed the divide one night with the same reckless optimism as he had gone through life.'
+✗ Incorrect
+
+Input:    'and susan hawthorne faced a blank future with a smile that was reminiscent of old smiler's cheeriest effort, which you only saw when things were very black and the proposition to be tackled was exceeding tough.'
+Expected: 'And Susan Hawthorne faced a blank future with a smile that was reminiscent of old Smiler's cheeriest effort, which you only saw when things were very black and the proposition to be tackled was exceeding tough.'
+Actual:   'And Susan hawthorne faced a blank future with a smile that was reminiscent of old smiler's cheeriest effort, which you only saw when things were very black and the proposition to be tackled was exceeding tough.'
+✗ Incorrect
+
+Input:    'wherefore she went to lord hannassay, because he seemed to be the only friend of her father's who was in england.'
+Expected: 'Wherefore she went to Lord Hannassay, because he seemed to be the only friend of her father's who was in England.'
+Actual:   'Wherefore she went to Lord Hannassay, because he seemed to be the only friend of her father's who was in england.'
+✗ Incorrect
+
+Input:    '"my father died a month ago," she said.'
+Expected: '"My father died a month ago," she said.'
+Actual:   '"My father died a month ago,"She said.'
+✗ Incorrect
+
+
+ERROR ANALYSIS:
+------------------------------
+Capitalization: 347 (22.5%)
+Proper_nouns: 3 (0.2%)
+Punctuation: 415 (26.9%)
+Other: 3 (0.2%)
+
+Test completed. Error report saved to 'error_report.txt'
