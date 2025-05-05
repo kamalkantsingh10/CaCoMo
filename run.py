@@ -1,9 +1,9 @@
 import torch
-from source.dataset_builder import create_training_dataset
-from source.model_trainer import Trainer
-from source.initial_setup import config
+from source_bert.dataset_builder import create_training_dataset
+from source_bert.model_trainer import Trainer
+from source_bert.initial_setup import config
 from source_finetune.finetuner import FineTuner
-from source.tester import tester
+from source_bert.tester import tester
 from source_pos_tagging.tester import Tester
 
 # Set device
