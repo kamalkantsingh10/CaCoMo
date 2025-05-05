@@ -1,0 +1,150 @@
+==================================================
+EVALUATION RESULTS
+==================================================
+Total samples: 3001
+Total prediction time: 685.19 seconds
+Average time per prediction: 0.228 seconds
+Exact match accuracy: 72.14%
+Character accuracy: 94.19%
+Word accuracy: 96.49%
+
+==================================================
+SAMPLE PREDICTIONS
+==================================================
+
+Example 1:
+Input: correct case for sentence: only i don't like my relatives being pushed through traps in execution sheds--it's rotten bad for the health of the genealogical tree.
+Target: Only I don't like my relatives being pushed through traps in execution sheds--it's rotten bad for the health of the genealogical tree.
+Predicted: Only I don't like my relatives being pushed through traps in execution sheds--it's rotten bad for the health of the genealogical tree.
+------------------------------
+
+Example 2:
+Input: correct case for sentence: chapter i introduction to storm probably susan hawthorne got a lot of her courage and independence from her father, old smiler hawthorne, who in his time had been nearly everything and nearly everywhere--a tall, grizzled man who was generally broke but always unbeatable.
+Target: CHAPTER I INTRODUCTION TO STORM Probably Susan Hawthorne got a lot of her courage and independence from her father, old Smiler Hawthorne, who in his time had been nearly everything and nearly everywhere--a tall, grizzled man who was generally broke but always unbeatable.
+Predicted: Chapter I Introduction to Storm probably Susan Hawthorne got a lot of her courage and independence from her father, old Smiler Hawthorne, who in his time had been nearly everything and nearly everywhere--a tall, grizzled man who was generally broke but always unbeatable.
+------------------------------
+
+Example 3:
+Input: correct case for sentence: anyway, wherever she got it from, she needed it all; for old hawthorne crossed the divide one night with the same reckless optimism as he had gone through life.
+Target: Anyway, wherever she got it from, she needed it all; for old Hawthorne crossed the Divide one night with the same reckless optimism as he had gone through life.
+Predicted: Anyway, wherever she got it from, she needed it all; for old Hawthorne crossed the divide one night with the same reckless optimism as he had gone through life.
+------------------------------
+
+Example 4:
+Input: correct case for sentence: he left her his name and thirty pounds, the rest of his fortune having disappeared only a week before, together with the promoter of a company whose sole asset was a diamond field wherein no diamonds were.
+Target: He left her his name and thirty pounds, the rest of his fortune having disappeared only a week before, together with the promoter of a company whose sole asset was a diamond field wherein no diamonds were.
+Predicted: He left her his name and thirty pounds, the rest of his fortune having disappeared only a week before, together with the promoter of a company whose sole asset was a diamond field wherein no diamonds were.
+------------------------------
+
+Example 5:
+Input: correct case for sentence: and susan hawthorne faced a blank future with a smile that was reminiscent of old smiler's cheeriest effort, which you only saw when things were very black and the proposition to be tackled was exceeding tough.
+Target: And Susan Hawthorne faced a blank future with a smile that was reminiscent of old Smiler's cheeriest effort, which you only saw when things were very black and the proposition to be tackled was exceeding tough.
+Predicted: And Susan Hawthorne faced a blank future with a smile that was reminiscent of old Smiler's cheeriest effort, which you only saw when things were very black and the proposition to be tackled was exceeding tough.
+------------------------------
+
+Example 6:
+Input: correct case for sentence: he was that sort of man, and she was his daughter.
+Target: He was that sort of man, and she was his daughter.
+Predicted: He was that sort of man, and she was his daughter.
+------------------------------
+
+Example 7:
+Input: correct case for sentence: she felt very much alone in the world.
+Target: She felt very much alone in the world.
+Predicted: She felt very much alone in the world.
+------------------------------
+
+Example 8:
+Input: correct case for sentence: she had lost touch with her own friends in the accompanying of her father in his happy-go-lucky aimless globe-trotting; and most of the friends he had picked up himself--and they were legion--were scattered in odd corners of the earth.
+Target: She had lost touch with her own friends in the accompanying of her father in his happy-go-lucky aimless globe-trotting; and most of the friends he had picked up himself--and they were legion--were scattered in odd corners of the earth.
+Predicted: She had lost touch with her own friends in the accompanying of her father in his happy-go-lucky aimless globe-trotting; and most of the friends he had picked up himself--and they were legion--were scattered in odd corners of the earth.
+------------------------------
+
+Example 9:
+Input: correct case for sentence: in any case, she was not one to look for charity.
+Target: In any case, she was not one to look for charity.
+Predicted: In any case, she was not one to look for charity.
+------------------------------
+
+Example 10:
+Input: correct case for sentence: wherefore she went to lord hannassay, because he seemed to be the only friend of her father's who was in england.
+Target: Wherefore she went to Lord Hannassay, because he seemed to be the only friend of her father's who was in England.
+Predicted: Wherefore she went to Lord Hannassay, because he seemed to be the only friend of her father's who was in England.
+------------------------------
+
+Results saved to test_results.csv
+Loaded 3001 test samples
+Predicting: 100%|█████████████████████████████████████████████████████████████████████████████████████| 376/376 [11:43<00:00,  1.87s/it]
+
+==================================================
+ERROR ANALYSIS
+==================================================
+Total errors: 836
+
+CASE_ERROR: 583 occurrences
+  Example 1:
+    Target:    CHAPTER I INTRODUCTION TO STORM Probably Susan Hawthorne got a lot of her courage and independence from her father, old Smiler Hawthorne, who in his time had been nearly everything and nearly everywhere--a tall, grizzled man who was generally broke but always unbeatable.
+    Predicted: Chapter I Introduction to Storm probably Susan Hawthorne got a lot of her courage and independence from her father, old Smiler Hawthorne, who in his time had been nearly everything and nearly everywhere--a tall, grizzled man who was generally broke but always unbeatable.
+  Example 2:
+    Target:    Anyway, wherever she got it from, she needed it all; for old Hawthorne crossed the Divide one night with the same reckless optimism as he had gone through life.
+    Predicted: Anyway, wherever she got it from, she needed it all; for old Hawthorne crossed the divide one night with the same reckless optimism as he had gone through life.
+  Example 3:
+    Target:    League of Nations conferences--all rot.
+    Predicted: League of nations conferences--all rot.
+  Example 4:
+    Target:    housekeeper's always here.
+    Predicted: Housekeeper's always here.
+  Example 5:
+    Target:    After a month she began to consider herself an authority on affairs of State, for Lord Hannassay held a high post in the Home Office.
+    Predicted: After a month she began to consider herself an authority on affairs of state, for Lord Hannassay held a high post in the home office.
+
+OTHER: 44 occurrences
+  Example 1:
+    Target:    "Listen--you're afraid I'll offer you money.
+    Predicted: "Little--you're afraid I'll offer you money.
+  Example 2:
+    Target:    Storm, who was Storm--so perfectly did the name fit him that it was impossible to think of him as anything else--Storm, the reckless, daredevil trouble-hunter with the heart of a crusader....
+    Predicted: Storm, who was Storm--so perfectly did the name fit him that it was impossible to think of him as anything else--Sturm, the reckless, daredevil trouble-hunter with the heart of a crusader....
+  Example 3:
+    Target:    "Listen," he said.
+    Predicted: "Little," he said.
+  Example 4:
+    Target:    He was identified as Henri Francois Joubert, a Frenchman domiciled in England, who'd made his fortune on the Stock Exchange--jobbing, you know--about thirty years ago.
+    Predicted: He was identified as Helen Francois Joubert, a Frenchman domiciled in England, who'd made his fortune on the stock exchange--jobbing, you know--about thirty years ago.
+  Example 5:
+    Target:    "Interesting people, very," said Mr.
+    Predicted: "Interessant people, very," said Mr.
+
+UNDERGENERATION: 153 occurrences
+  Example 1:
+    Target:    "You put 'Morocco' and 'South Pacific' and 'Nassau' and that sort of thing.
+    Predicted: "You put'morocco' and'south Pacific' and 'nassau' and that sort of thing.
+  Example 2:
+    Target:    The morning following his discovery of the Alpha Triangle (already, with that queer instinct for the dramatic which few would have suspected beneath his prosaic exterior, he spelt it with capital letters) Inspector Teal flowed--there is no other word for his peculiar method of locomotion--in the direction of Kensington, for on the left-hand side of Church Street, behind a door over which hung three golden orbs, lived Mr.
+    Predicted: The morning following his discovery of the Alpha Triangle (already, with that queer instinct for the dramatic which few would have suspected beneath his prosaic exterior, he spelt it with capital letters) Inspector Teal flowed--there is no other word for his peculiar method of locomotion--in the direction of Kent, for on the left-hand side of Church Street, behind a door over which hung three golden orbs, lived Mr.
+  Example 3:
+    Target:    "Are you the philanthropist who's financing Birdie Sands?" "Birdie's hands?" inquired the puzzled Mr.
+    Predicted: "Are you the Philanthropist who's financing Birdie Sands?" "Voice's hands?" inquired the puzzled Mr.
+  Example 4:
+    Target:    "Birdie Sands," Mr.
+    Predicted: "Vie sands," Mr.
+  Example 5:
+    Target:    "Because if so, you're too late.
+    Predicted: "But if so, you're too late.
+
+OVERGENERATION: 56 occurrences
+  Example 1:
+    Target:    "Absurd be catlicked!" Storm said.
+    Predicted: "Absorbd be catlicked!" Storm said.
+  Example 2:
+    Target:    "Very little," he confessed.
+    Predicted: "Everything little," he confessed.
+  Example 3:
+    Target:    I've had rather a trying day." "Poor kid!" He knelt down beside her and laid an arm about her shoulders.
+    Predicted: I've had rather a trying day." "Ppoor kid!" he knelt down beside her and laid an arm about her shoulders.
+  Example 4:
+    Target:    _Joan!_" His voice was tense with agony.
+    Predicted: _____Joan!_" His voice was tense with agony.
+  Example 5:
+    Target:    He watched Susan let herself in, and then hurried after the Swede.
+    Predicted: He watched Susan let herself in, and then hurried after the Swedish.
