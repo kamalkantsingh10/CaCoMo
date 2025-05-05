@@ -10,8 +10,7 @@ Restore proper capitalization to text that has been converted to all lowercase l
 `Output: Hello world. This is John Smith from Apple Inc. He lives in New York.`
 
 ## Approaches tested
-
-![Generated image][image1]  
+![Cover](https://github.com/kamalkantsingh10/CaCoMo/blob/main/CaCoMo.png?raw=true)
 **Approach 1: Rule-Based POS Tagging**  
 We leverage spaCy's part-of-speech tagger to classify words and apply grammatical rules for capitalization. This traditional approach serves as our performance baseline while maintaining fast, deterministic processing.
 
@@ -65,70 +64,4 @@ We sourced text from Project Gutenberg books to create a case correction dataset
 * Training dataset for [approach 2](https://github.com/kamalkantsingh10/CaCoMo/blob/main/files/dataset/full_model/training.txt) and [approach 3](https://github.com/kamalkantsingh10/CaCoMo/blob/main/files/dataset/finetune/training.txt)  
 * [Validation dataset](https://github.com/kamalkantsingh10/CaCoMo/blob/main/files/dataset/full_model/validation.txt)  
 * [Testing dataset](https://github.com/kamalkantsingh10/CaCoMo/blob/main/files/dataset/testing.txt)
-
-
-
-
-**Implementation Steps**
-
-1. **Configure BERT-to-BERT encoder-decoder architecture**  
-2. **Prepare dataset with lowercase/correct-case pairs**  
-3. **Train model with cross-entropy loss**  
-4. **Fine-tune until convergence**  
-5. **Validate on test set**
-
-**Implementation Steps**
-
-1. **Load spaCy model and define rule sets**  
-2. **Process text with POS tagger to identify word types**  
-3. **Apply capitalization rules based on word position and POS tags**  
-4. **Handle special formatting for punctuation and contractions**
-
-**Implementation Steps**
-
-1. **Load pre-trained T5-small model**  
-2. **Configure LoRA adapter with rank 8**  
-3. **Preprocess data with "correct case for sentence:" prefix**  
-4. **Train adapter while freezing base model**  
-5. **Save LoRA adapter for inference**
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
