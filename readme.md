@@ -115,6 +115,7 @@ Each approach followed a specific implementation path:
    - Saved LoRA adapter for inference
 
 ## Training Comparison
+![Architectural diagram comparing the three approaches](https://github.com/kamalkantsingh10/CaCoMo/blob/main/doc_images/caCoMo-training.png?raw=true)
 
 | Metric | Rule-Based POS Tagging | BERT-to-BERT Encoder-Decoder | T5 with LoRA |
 |--------|------------------------|------------------------------|--------------|
@@ -153,7 +154,7 @@ After 20 hours of development and testing over a weekend:
    - Best performer with 72.14% accuracy on first attempt
    - Original T5-small model could not correct any sentences
    - Promising results that could improve with more training data and tuning
-
+![Architectural diagram comparing the three approaches](https://github.com/kamalkantsingh10/CaCoMo/blob/main/doc_images/caCoMo_results.png?raw=true)
 ### Example Comparison
 
 While none of the approaches achieved perfect results, this example demonstrates how the approaches performed on a real test case:
