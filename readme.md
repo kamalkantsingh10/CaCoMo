@@ -213,9 +213,6 @@ T5 with LoRA emerged as the clear winner, achieving 72.14% accuracy while mainta
 
 ## Frequently Asked Questions
 
-### Why focus on text capitalization restoration?
-Text capitalization is a fundamental part of proper text formatting that affects readability, tone, and meaning. Many NLP preprocessing tasks involve lowercase conversion to normalize text, but the ability to restore proper capitalization is crucial for generating publication-ready content or improving user experience with automatically generated text.
-
 ### Why did the BERT-to-BERT approach fail completely?
 The complete failure (0% accuracy) of the BERT-to-BERT approach was unexpected. Possible reasons include:
 - Insufficient training data for such a complex model architecture
