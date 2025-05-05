@@ -1,0 +1,11 @@
+# Model files
+models/full_model/model.safetensors
+tiny_model/model.safetensors
+
+# Optionally ignore all safetensors files
+# *.safetensors
+
+# Optionally ignore entire model directories
+# models/
+# tiny_model/
+EOL
