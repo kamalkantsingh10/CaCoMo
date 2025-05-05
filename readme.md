@@ -17,7 +17,7 @@ Hello world. This is John Smith from Apple Inc. He lives in New York.
 All approaches were tested and implemented within a 2-day timeframe without using large LLMs directly, focusing on practical learning outcomes.
 
 ## Approaches Tested
-
+![Alt text](https://raw.githubusercontent.com/kamalkantsingh10/CaCoMo/refs/heads/main/CaCoMo.png)
 ### 1. Rule-Based POS Tagging
 
 This approach uses spaCy's part-of-speech tagger to classify words and applies grammatical rules for capitalization. It serves as our performance baseline.
