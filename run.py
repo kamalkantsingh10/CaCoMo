@@ -3,7 +3,7 @@ from source.dataset_builder import create_training_dataset
 from source.model_trainer import Trainer
 from source.initial_setup import config
 from source_finetune.finetuner import FineTuner
-#from source.tester import tester
+from source.tester import tester
 from source_pos_tagging.tester import Tester
 
 # Set device
@@ -49,7 +49,7 @@ def test_full_model():
     test_file = "files/dataset/testing.txt"  # Your file with 2000 lines
     
     # Option 1: Full evaluation with output file
-    results = test_from_formatted_file(
+    results = tester(
         input_file=test_file,
         output_file="test_results.txt",
         verbose=True,  # Set to False for quiet mode,
@@ -89,4 +89,4 @@ def test_pos():
 
 
 #finetune()
-test_pos()
+test_full_model()
