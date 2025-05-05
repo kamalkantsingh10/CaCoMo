@@ -149,16 +149,19 @@ After 20 hours of development and testing over a weekend:
    - Easy to implement initially but limited
    - Started at 10% accuracy, improved to 48.5% after adding more rules
    - Further improvements possible but would be increasingly hardcoded
+   - [See Python implementation of Testing](https://github.com/kamalkantsingh10/CaCoMo/blob/main/source_pos_tagging/tester.py)
 
 2. **BERT-to-BERT:**
    - Completely failed (0% accuracy), unexpectedly
    - Likely needed more training data and epochs (50-60)
    - Capitalized very few characters and produced altered text
+   - [See Python implementation of Testing](https://github.com/kamalkantsingh10/CaCoMo/blob/main/source_bert/tester.py)
 
 3. **T5 with LoRA:**
    - Best performer with 72.14% accuracy on first attempt
    - Original T5-small model could not correct any sentences
    - Promising results that could improve with more training data and tuning
+   - [See Python implementation of Testing](https://github.com/kamalkantsingh10/CaCoMo/blob/main/source_finetune/tester.py)
 
 
 
