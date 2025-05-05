@@ -78,17 +78,19 @@ This approach adapts the T5 model for case correction using Low-Rank Adaptation 
 
 Text from Project Gutenberg books was used to create the case correction dataset:
 
-1. Downloaded plain text books from Project Gutenberg
+1. Downloaded plain text books from [Project Gutenberg](https://gutenberg.org/). Books I used are [here](https://github.com/kamalkantsingh10/CaCoMo/tree/main/files/original)
 2. Parsed text into individual sentences
 3. Converted to lowercase for training inputs
 4. Used original sentences as correction targets
-5. Split into 12,500 training, 2,500 validation, and 3,000 testing sentences
+5. Split into 7800 training, 2,500 validation, and 3,000 testing sentences
 
 **Example:**
 - **Input:** `she went with some trepidation, and was not unpleasantly surprised, and more than a little nervous, when she found that he was not so inaccessible as his name and position seemed to indicate.`
 - **Target:** `She went with some trepidation, and was not unpleasantly surprised, and more than a little nervous, when she found that he was not so inaccessible as his name and position seemed to indicate.`
 
 The same training and testing data was used across all approaches to ensure fair comparison.
+
+training data for BERT-To-BERT [here](https://github.com/kamalkantsingh10/CaCoMo/tree/main/files/dataset/full_model), For T5 with LoRA [here](https://github.com/kamalkantsingh10/CaCoMo/tree/main/files/dataset/finetune)
 
 ## Implementation Process
 
@@ -99,6 +101,7 @@ Each approach followed a specific implementation path:
    - Processed text with POS tagger to identify word types
    - Applied capitalization rules based on word position and POS tags
    - Handled special formatting for punctuation and contractions
+   - [See Python implementation for more details](https://github.com/kamalkantsingh10/CaCoMo/blob/main/source_pos_tagging/pos_base_corrector.py)
 
 2. **BERT-to-BERT Encoder-Decoder:**
    - Configured BERT-to-BERT encoder-decoder architecture
@@ -106,6 +109,7 @@ Each approach followed a specific implementation path:
    - Trained model with cross-entropy loss
    - Fine-tuned until convergence
    - Validated on test set
+   - [See Python implementation for more details](https://github.com/kamalkantsingh10/CaCoMo/blob/main/source_bert/model_trainer.py)
 
 3. **T5 with LoRA:**
    - Loaded pre-trained T5-small model
@@ -113,6 +117,7 @@ Each approach followed a specific implementation path:
    - Preprocessed data with "correct case for sentence:" prefix
    - Trained adapter while freezing base model
    - Saved LoRA adapter for inference
+   - [See Python implementation for more details](https://github.com/kamalkantsingh10/CaCoMo/blob/main/source_finetune/finetuner.py)
 
 ## Training Comparison
 ![Architectural diagram comparing the three approaches](https://github.com/kamalkantsingh10/CaCoMo/blob/main/doc_images/caCoMo-training.png?raw=true)
