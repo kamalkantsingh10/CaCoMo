@@ -182,6 +182,7 @@ positive
 ```
 Chapter I Introduction to Storm probably Susan Hawthorne got a lot of her courage and independence from her father, old Smiler Hawthorne, who in his time had been nearly everything and nearly everywhere--a tall, grizzled man who was generally broke but always unbeatable.
 ```
+This comparison reveals the stark difference between approaches. The rule-based system only capitalized sentence beginnings and recognized "Susan" as a proper noun, while completely missing "Smiler Hawthorne." The base T5 model was entirely lost, outputting just "positive." In contrast, the fine-tuned T5-LoRA correctly handled most proper nouns and title formatting, demonstrating how effective targeted fine-tuning can be even with limited training data and computational resources.
 
 ## Future Improvements
 
