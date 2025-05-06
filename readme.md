@@ -25,8 +25,7 @@ All approaches were tested and implemented within a 2-day timeframe without usin
 | T5 with LoRA (Finetuning) | 72.1% | 10 min | 10MB (adapter) | Best balance of accuracy and size |
 
 ## Approaches Tested
-
-![Architectural diagram comparing the three approaches](https://github.com/kamalkantsingh10/CaCoMo/blob/main/doc_images/CaCoMo.png?raw=true)
+<img src="https://github.com/kamalkantsingh10/CaCoMo/blob/main/doc_images/CaCoMo.png?raw=true" width="50%">
 
 ### 1. Rule-Based POS Tagging
 
@@ -120,7 +119,8 @@ Each approach followed a specific implementation path:
    - [See Python implementation for more details](https://github.com/kamalkantsingh10/CaCoMo/blob/main/source_finetune/finetuner.py)
 
 ## Training Comparison
-![Architectural diagram comparing the three approaches](https://github.com/kamalkantsingh10/CaCoMo/blob/main/doc_images/caCoMo-training.png?raw=true)
+<img src="https://github.com/kamalkantsingh10/CaCoMo/blob/main/doc_images/caCoMo-training.png?raw=true" width="50%">
+
 
 | Metric | Rule-Based POS Tagging | BERT-to-BERT Encoder-Decoder | T5 with LoRA |
 |--------|------------------------|------------------------------|--------------|
@@ -164,8 +164,7 @@ After 20 hours of development and testing over a weekend:
    - [See Python implementation of Testing](https://github.com/kamalkantsingh10/CaCoMo/blob/main/source_finetune/tester.py)
 
 
-
-![Architectural diagram comparing the three approaches](https://github.com/kamalkantsingh10/CaCoMo/blob/main/doc_images/caCoMo_results.png?raw=true)
+<img src="https://github.com/kamalkantsingh10/CaCoMo/blob/main/doc_images/caCoMo_results.png?raw=true" width="50%">
 
 ### Example Comparison
 
